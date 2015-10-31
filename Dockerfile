@@ -37,7 +37,7 @@ RUN curl -XGET https://github.com/golang/go/tags | grep tag-name > /tmp/golang_t
 
 # Kube UI
 RUN git clone https://github.com/kubernetes/kube-ui
-ADD production.json $SRC_DIR/kube-ui/master/shared/config/production.json
+#ADD production.json $SRC_DIR/kube-ui/master/shared/config/production.json
 RUN cd kube-ui \
  && go get github.com/tools/godep \
  && go get -u github.com/jteeuwen/go-bindata/... \
