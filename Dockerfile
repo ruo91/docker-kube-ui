@@ -2,10 +2,10 @@
 # Dockerfile - Google Kubernetes UI
 #
 # - Build
-# docker build --rm -t kubernetes:ui .
+# docker build --rm -t kubernetes:ui-dev .
 #
 # - Run
-# docker run -d --name="kubernetes-ui" -h "kubernetes-ui" kubernetes:ui
+# docker run -d --name="kubernetes-ui" -h "kubernetes-ui" kubernetes:ui-dev
 #
 # Use the base images
 FROM ubuntu:15.04
@@ -36,8 +36,9 @@ RUN curl -XGET https://github.com/golang/go/tags | grep tag-name > /tmp/golang_t
  && echo '' >> /etc/profile
 
 # Kube UI
-RUN git clone https://github.com/kubernetes/kube-ui \
- && cd kube-ui \
+RUN git clone https://github.com/kubernetes/kube-ui
+ADD production.json $SRC_DIR/kube-ui/master/shared/config/production.json
+RUN cd kube-ui \
  && go get github.com/tools/godep \
  && go get -u github.com/jteeuwen/go-bindata/... \
  && go get k8s.io/kube-ui/data && make kube-ui \
