@@ -2,13 +2,13 @@
 # Dockerfile - Google Kubernetes UI
 #
 # - Build
-# docker build --rm -t kubernetes:ui-dev .
+# docker build --rm -t kubernetes:ui .
 #
 # - Run
-# docker run -d --name="kubernetes-ui" -h "kubernetes-ui" kubernetes:ui-dev
+# docker run -d --name="kubernetes-ui" -h "kubernetes-ui" kubernetes:ui
 #
 # Use the base images
-FROM ubuntu:15.04
+FROM ubuntu:16.04
 MAINTAINER Yongbok Kim <ruo91@yongbok.net>
 
 # The last update and install package for docker
