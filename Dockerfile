@@ -8,7 +8,7 @@
 # docker run -d --name="kubernetes-ui" -h "kubernetes-ui" kubernetes:ui
 #
 # Use the base images
-FROM ubuntu:16.04
+FROM ubuntu:17.04
 MAINTAINER Yongbok Kim <ruo91@yongbok.net>
 
 # The last update and install package for docker
@@ -17,6 +17,9 @@ RUN apt-get update && apt-get install -y git-core curl build-essential
 # Variable
 ENV SRC_DIR /opt
 WORKDIR $SRC_DIR
+
+# Build version
+ENV BUILD_VER 20170702
 
 # GO Language
 ENV GO_ARCH linux-amd64
